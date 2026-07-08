@@ -1,18 +1,21 @@
 # GSIC Report Studio
 
-A Georgia Social Impact Collaborative–branded reporting and data presentation
-extension for **Airtable Interfaces**. Point it at any table and it produces a
-polished, print-ready impact report:
+A Georgia Social Impact Collaborative–branded **dashboard builder** for
+Airtable Interfaces. A dashboard is a grid of independent sections — add as
+many as you need, each with its own table, grouping, and measure:
 
 - **KPI cards** — record count, sum/average of a value field, group count, and
   period-over-period movement
-- **Group breakdown** — GSIC-styled horizontal bars + composition donut; click
-  any group to drill the records table down to it
-- **Monthly trend** — area chart over any date field
-- **Records table** — GSIC table styling, native Airtable cell rendering,
-  click a row to open the record, paginated
-- **Date-range chips** — All time / Last 30 days / Last 90 days / Year to date
-- **Print / PDF** — one click, with interactive chrome stripped via print CSS
+- **Bar breakdown** — GSIC-styled horizontal bars for any groupable field
+- **Donut** — composition chart, independently grouped from the bars
+- **Trend line** — monthly area chart over any date field
+- **Records table** — native Airtable cell rendering, row click opens the
+  record, paginated
+
+Sections grouped by the same field cross-filter: click a bar or donut segment
+and matching tables narrow to that group. Global date-range chips (all time /
+30d / 90d / YTD) filter every section at once, and **Print / PDF** produces a
+clean export with the editing chrome stripped.
 
 Everything follows the shared GSIC design system: Familjen Grotesk, green
 `#149a49` / purple `#4750a2` accents, the conic-gradient brand mark, and the
@@ -25,16 +28,17 @@ Airtable's appearance setting.
 
 | Property | What it does |
 |---|---|
-| Report title | Heading shown next to the GSIC mark |
-| Data table | The table to report on |
-| Bars measure | Record count vs. sum of the value field |
-| Show composition donut / monthly trend / records table | Section toggles |
+| Dashboard title | Heading shown next to the GSIC mark |
+| Default table for new sections | Pre-fills newly added sections |
 | Show debug panel | Data-source troubleshooting aid |
 
-**Report setup panel** (visible only while editing the interface): pick the
-**Group by**, **Date**, and **Value to sum** fields. Choices persist per table
-in the extension's GlobalConfig. If you never touch it, sensible fields are
-auto-detected (first single select, first date field, first numeric field).
+**Section editing** (while the interface is in edit mode): every section shows
+a settings strip — table, group field, date field, measure (record count, or
+pick a numeric field to sum), custom title, reorder arrows, half/full width
+toggle, and remove. An **Add section** bar sits at the bottom of the grid.
+The layout persists in the extension's GlobalConfig and syncs to all viewers.
+A fresh install starts with a sensible auto-detected layout (KPIs, bars,
+donut, trend, table).
 
 > Fields must be added as **data sources** for the extension in Interface
 > Designer or they won't appear (and can't be read). If something looks empty,

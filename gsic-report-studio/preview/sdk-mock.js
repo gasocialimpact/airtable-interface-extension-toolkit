@@ -42,7 +42,11 @@ const mockTable = {
     hasPermissionToExpandRecords: () => true,
 };
 
-const mockBase = {tables: [mockTable], name: 'GSIC Preview Base'};
+const mockBase = {
+    tables: [mockTable],
+    name: 'GSIC Preview Base',
+    getTableByIdIfExists: id => (id === mockTable.id ? mockTable : null),
+};
 
 const globalConfigStore = {};
 const mockGlobalConfig = {
@@ -107,4 +111,17 @@ export function initializeBlock({interface: makeApp}) {
     const root = createRoot(document.getElementById('root'));
     renderFn = () => root.render(React.createElement(makeApp));
     renderFn();
+
+    // Preview-only: toggle builder edit mode to try the section editor.
+    const toggle = document.createElement('button');
+    toggle.textContent = 'Toggle edit mode (preview only)';
+    toggle.style.cssText =
+        'position:fixed;bottom:14px;right:14px;z-index:999;padding:8px 14px;border-radius:8px;' +
+        'border:1px solid #cfd2d8;background:#fff;font:600 12px "Familjen Grotesk",system-ui;cursor:pointer';
+    toggle.onclick = () => {
+        window.__editMode = !window.__editMode;
+        toggle.style.background = window.__editMode ? '#e0f1d9' : '#fff';
+        rerender();
+    };
+    document.body.appendChild(toggle);
 }

@@ -6,6 +6,12 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["serve", "-l", "4173", "gsic-report-studio/preview/dist"],
       "port": 4173
+    },
+    {
+      "name": "gsic-dashboards-preview",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-l", "4180", "/Users/sydneyengland/Documents/GitHub/gsic-dashboards/public"],
+      "port": 4180
     }
   ]
 }

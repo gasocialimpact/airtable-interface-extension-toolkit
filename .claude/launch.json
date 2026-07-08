@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "report-studio-preview",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-l", "4173", "gsic-report-studio/preview/dist"],
+      "port": 4173
+    }
+  ]
+}

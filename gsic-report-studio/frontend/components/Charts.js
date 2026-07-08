@@ -37,6 +37,7 @@ export function CompositionDonut({groups, selectedGroup, onSelect}) {
                             outerRadius="95%"
                             paddingAngle={2}
                             strokeWidth={0}
+                            isAnimationActive={false}
                             onClick={entry => onSelect?.(selectedGroup === entry.name ? null : entry.name)}
                         >
                             {data.map((entry, i) => (
@@ -98,6 +99,7 @@ export function TrendChart({trend, showValues, currencySymbol}) {
                     />
                     <Area
                         type="monotone"
+                        isAnimationActive={false}
                         dataKey={dataKey}
                         stroke={GSIC.green}
                         strokeWidth={2.5}
